@@ -21,6 +21,8 @@ def clean_address_line(line):
     cleaned = cleaned.replace('　', ' ')
     # 連続する空白を1つに
     cleaned = ' '.join(cleaned.split())
+    # 最後の半角スペースを削除
+    cleaned = cleaned.strip()
     return cleaned
 
 def process_multiple_pdfs(pdf_dir):
@@ -103,7 +105,7 @@ def extract_info_from_pdf(pdf_path):
                             if len(parts) >= 2 and parts[-1].strip() and not parts[-1].strip() == '┃':
                                 # 前の人のデータがあれば保存
                                 if current_name and current_address:
-                                    complete_address = ' '.join(current_address)
+                                    complete_address = ''.join(current_address).strip()
                                     if complete_address:
                                         data.append({
                                             '氏名': current_name,
@@ -129,7 +131,7 @@ def extract_info_from_pdf(pdf_path):
 
                 # ページ終了時に残っているデータを保存
                 if current_name and current_address:
-                    complete_address = ' '.join(current_address)
+                    complete_address = ''.join(current_address).strip()
                     if complete_address:
                         data.append({
                             '氏名': current_name,
