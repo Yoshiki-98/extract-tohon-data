@@ -306,7 +306,6 @@ def create_streamlit_app():
     
     # フッター
     st.markdown("---")
-    st.markdown("©2025 ARKNEXT株式会社 All Rights Reserved.")
 
 if __name__ == "__main__":
     create_streamlit_app()
