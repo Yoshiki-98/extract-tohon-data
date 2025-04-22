@@ -3,3 +3,5 @@ primaryColor="#2e7d32"
 backgroundColor="#000"
 secondaryBackgroundColor="#green"
 textColor="#FFF"
+[server]
+fileWatcherType = "none"
